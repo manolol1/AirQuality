@@ -1,0 +1,15 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+#define WIFI_SSID "MyWiFi"
+#define WIFI_PASSWORD "$ecurePassw0rd!"
+
+#define INFLUXDB_URL "https://influxdb.example.com"
+#define INFLUXDB_TOKEN "insert_your_token_here"
+#define INFLUXDB_ORG "insert_your_org_here"
+#define INFLUXDB_BUCKET "airquality_example"
+#define TZ_INFO "UTC1"
+
+#define SENSOR_LOCATION "office"
+
+#endif
