@@ -125,10 +125,12 @@ void setup() {
     }
 
     // prefill SGP30 baseline values
-    uint16_t eCO2_base, TVOC_base;
-    eCO2_base = ECO2_BASE;
-    TVOC_base = TVOC_BASE;
-    sgp.setIAQBaseline(eCO2_base, TVOC_base);
+    if (PREFILL_BASE_VALUES) {
+        uint16_t eCO2_base, TVOC_base;
+        eCO2_base = ECO2_BASE;
+        TVOC_base = TVOC_BASE;
+        sgp.setIAQBaseline(eCO2_base, TVOC_base);
+    }
 
     Serial.println("Initialization done! Waiting for sensor to warm up...");
     delay(20000);

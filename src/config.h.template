@@ -12,6 +12,7 @@
 
 #define SENSOR_LOCATION "office"
 
+#define PREFILL_BASE_VALUES true
 #define TVOC_BASE 0x8C81
 #define ECO2_BASE 0x91DF
 
