@@ -193,12 +193,12 @@ void loop() {
             sensor.addField("rawEthanol", avgRawEthanol);
 
             if (SAVE_BASE_VALUES) {
-                uint16_t *base_TVOC;
-                uint16_t *base_eCO2;
+                uint16_t base_TVOC;
+                uint16_t base_eCO2;
 
-                if (sgp.getIAQBaseline(base_eCO2, base_TVOC)) {
-                    sensor.addField("base_eCO2", &base_eCO2);
-                    sensor.addField("base_TVOC", &base_TVOC);
+                if (sgp.getIAQBaseline(&base_eCO2, &base_TVOC)) {
+                    sensor.addField("base_eCO2", base_eCO2);
+                    sensor.addField("base_TVOC", base_TVOC);
                 }
             }
 
@@ -226,7 +226,7 @@ void loop() {
             rawEthanolSum = 0;
             measurementCount = 0;
 
-            delay(100);
+            delay(50);
         }
     } else {
         delay(1000);
