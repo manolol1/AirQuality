@@ -126,8 +126,8 @@ void setup() {
 
     // prefill SGP30 baseline values
     uint16_t eCO2_base, TVOC_base;
-    eCO2_base = 0x8C81;
-    TVOC_base = 0x91DF;
+    eCO2_base = ECO2_BASE;
+    TVOC_base = TVOC_BASE;
     sgp.setIAQBaseline(eCO2_base, TVOC_base);
 
     Serial.println("Initialization done! Waiting for sensor to warm up...");
@@ -189,6 +189,16 @@ void loop() {
             sensor.addField("eCO2", avgCO2);
             sensor.addField("rawH2", avgRawH2);
             sensor.addField("rawEthanol", avgRawEthanol);
+
+            if (SAVE_BASE_VALUES) {
+                uint16_t *base_TVOC;
+                uint16_t *base_eCO2;
+
+                if (sgp.getIAQBaseline(base_eCO2, base_TVOC)) {
+                    sensor.addField("base_eCO2", &base_eCO2);
+                    sensor.addField("base_TVOC", &base_TVOC);
+                }
+            }
 
             // Print what we are exactly writing
             Serial.print("Writing: ");
