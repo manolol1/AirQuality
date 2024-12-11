@@ -83,7 +83,8 @@ void setup() {
     WiFi.mode(WIFI_STA);
     wifiMulti.addAP(WIFI_SSID, WIFI_PASSWORD);
 
-    Serial.print("Connecting to wifi");
+    Serial.print("Connecting to wifi ");
+    Serial.print(WIFI_SSID);
     while (wifiMulti.run() != WL_CONNECTED) {
         Serial.print(".");
         delay(100);
