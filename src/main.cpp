@@ -112,10 +112,10 @@ void setup() {
     Serial.println("Initializing sensors...");
 
     if (!aht.begin()) {
-        Serial.println("AHT21 not found!");
+        Serial.println("AHT not found!");
         while (1) delay(10);
     } else {
-        Serial.println("AHT21 found!");
+        Serial.println("AHT found!");
     }
 
     if (!sgp.begin()) {
